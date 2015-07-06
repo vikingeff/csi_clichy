@@ -18,7 +18,7 @@ let create_lst file =
 			(input_line input)::lst;
 		done;
 	with
-		| End_of_file -> close_in input; ()
+		| End_of_file -> close_in input
 		| _ -> print_endline "There was an error, just don't know which one."
 	(*arrayz*)
 
