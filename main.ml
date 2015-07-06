@@ -18,16 +18,16 @@ let create_lst file =
 			(input_line input)::lst;
 		done;
 	with
-		| End_of_file -> close_in input
+		| End_of_file -> close_in input; ()
 		| _ -> print_endline "There was an error, just don't know which one."
-	arrayz
+	(*arrayz*)
 
 let main file =
 	try
 		let jokez = create_lst file in
 		Random.self_init ();
-		let index = Random.int nb_jokes in
-		print_endline (List.nth jokes lst)
+		(*let index = Random.int nb_jokes in*)
+		print_endline (List.nth 0 jokez)
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
 		| Failure err -> print_endline "Joke file doesn't seems well formated."
