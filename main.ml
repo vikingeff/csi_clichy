@@ -30,9 +30,12 @@ let main file =
 		(*let index = Random.int nb_jokes in*)
 		(*print_endline (List.nth 0 rulez)*)
 		print_endline file;
-		print_int (List.length !rulez);
+		let size = List.length !rulez in
+		print_int size;
 		print_char '\n';
-		print_endline (List.nth !rulez 0)
+		for i=0 to (size-1) do
+			print_endline (List.nth !rulez i);
+		done;
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
 		| Failure err -> print_endline "Joke file doesn't seems well formated."
