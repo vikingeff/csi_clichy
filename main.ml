@@ -10,22 +10,25 @@
 (*                                                                            *)
 (* ************************************************************************** *)
 
-let create_lst file =
+let lst_from_file file =
 	let input = open_in file in 
 	let lst = ref [] in
 	try
 		while true do
-			lst:=(input_line input)::!lst;
+			let buff = input_line input in
+			if buff = "" then
+				lst:=!lst
+			else
+				lst:=(String.trim(buff))::!lst
 		done;
 		lst
 	with
 		| End_of_file -> close_in input; lst
 		| _ -> print_endline "There was an error, just don't know which one."; lst
-	(*arrayz*)
 
 let main file =
 	try
-		let rulez = create_lst file in
+		let rulez = lst_from_file file in
 		Random.self_init ();
 		(*let index = Random.int nb_jokes in*)
 		(*print_endline (List.nth 0 rulez)*)
