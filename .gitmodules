@@ -1,3 +1,6 @@
 [submodule "mux"]
 	path = mux
 	url = git://github.com/gorilla/mux.git
+[submodule "sub/rpc"]
+	path = sub/rpc
+	url = git://github.com/gorilla/rpc.git
