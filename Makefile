@@ -12,7 +12,9 @@
 
 NAME =	expert
 
-SRC =	main.ml
+SRC =	parser.ml\
+		lexer.ml\
+		main.ml
 
 OTHER = $(SRC:.ml=.o)
 OBJ =	$(SRC:.ml=.cmo)

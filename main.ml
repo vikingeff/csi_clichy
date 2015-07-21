@@ -1,7 +1,7 @@
 (* ************************************************************************** *)
 (*                                                                            *)
 (*                                                        :::      ::::::::   *)
-(*   jokes.ml                                           :+:      :+:    :+:   *)
+(*   main.ml                                            :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
 (*   By: gleger <marvin@42.fr>                      +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
@@ -10,25 +10,10 @@
 (*                                                                            *)
 (* ************************************************************************** *)
 
-let lst_from_file file =
-	let input = open_in file in 
-	let lst = ref [] in
-	try
-		while true do
-			let buff = input_line input in
-			if buff = "" then
-				lst:=!lst
-			else
-				lst:=(String.trim(buff))::!lst
-		done;
-		lst
-	with
-		| End_of_file -> close_in input; lst
-		| _ -> print_endline "There was an error, just don't know which one."; lst
-
 let main file =
 	try
-		let rulez = lst_from_file file in
+		let rulez = Parser.lst_from_file file in
+		(*let rulez = Parser.rev_list (!buff) in*)
 		Random.self_init ();
 		(*let index = Random.int nb_jokes in*)
 		(*print_endline (List.nth 0 rulez)*)
@@ -36,9 +21,10 @@ let main file =
 		let size = List.length !rulez in
 		print_int size;
 		print_char '\n';
-		for i=0 to (size-1) do
+		(*for i=0 to (size-1) do
 			print_endline (List.nth !rulez i);
-		done;
+		done;*)
+		Lexer.lexit !rulez
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
 		| Failure err -> print_endline "Joke file doesn't seems well formated."
