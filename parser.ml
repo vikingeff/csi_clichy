@@ -11,6 +11,8 @@
 (* ************************************************************************** *)
 
 type operand = AND | OR | XOR | NOT | IFONLY | IMPLY | EQUAL
+let get_left (left,_) = left
+let get_right (_,right) = right
 
 let rev_list lst = 
 	let rec backward lst acc = match lst with
@@ -35,6 +37,5 @@ let lst_from_file file =
 		| End_of_file -> close_in input; lst
 		| _ -> print_endline "There was an error, just don't know which one."; lst
 
-let parsit command arrayz =
-	print_string "p: ";
-	print_endline command
+let parsit arrayz =
+	print_string "rule: "

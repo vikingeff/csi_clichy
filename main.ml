@@ -17,14 +17,16 @@ let main file =
 		Random.self_init ();
 		(*let index = Random.int nb_jokes in*)
 		(*print_endline (List.nth 0 rulez)*)
+		print_string "File name : ";
 		print_endline file;
-		let size = List.length !rulez in
+		(*let size = List.length !rulez in
 		print_int size;
-		print_char '\n';
+		print_char '\n';*)
 		(*for i=0 to (size-1) do
 			print_endline (List.nth !rulez i);
 		done;*)
-		Lexer.lexit !rulez
+		let lexed = (Lexer.lexit !rulez) in 
+		Parser.parsit
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
 		| Failure err -> print_endline "Joke file doesn't seems well formated."

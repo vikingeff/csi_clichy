@@ -20,6 +20,8 @@ let print_trool = function
 
 let lexit rulez =
 	let results = Array.make 26 NA in
+	let arrul = Array.make ((List.length rulez)-1) ["", false] in
+	let loop = ref 0 in 
 	for i = 0 to ((List.length rulez)-1) do
 		if (List.nth rulez i).[0] = '=' then
 		begin
@@ -32,11 +34,12 @@ let lexit rulez =
 					results.(index-65)<-TRUE;
 					incr j
 			done;
-			print_char '\n'
 		end
 		else if (List.nth rulez i).[0] != '#' then
-			Parser.parsit (List.nth rulez i) results
-
+			begin
+				arrul.(!loop) <- [(List.nth rulez i), false];
+				incr loop
+			end
 	done;
 	for i = 0 to ((Array.length results)-1) do
 		print_char (char_of_int (i+65));
@@ -44,3 +47,4 @@ let lexit rulez =
 		print_string (print_trool (results.(i)));
 		print_char '\n'
 	done;
+	arrul
