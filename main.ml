@@ -26,7 +26,7 @@ let main file =
 			print_endline (List.nth !rulez i);
 		done;*)
 		let lexed = (Lexer.lexit !rulez) in 
-		Parser.parsit
+		Parser.parsit lexed
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
 		| Failure err -> print_endline "Joke file doesn't seems well formated."

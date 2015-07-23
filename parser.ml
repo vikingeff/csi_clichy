@@ -39,3 +39,4 @@ let lst_from_file file =
 
 let parsit arrayz =
 	print_string "rule: "
+	
