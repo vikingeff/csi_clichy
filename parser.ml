@@ -38,5 +38,7 @@ let lst_from_file file =
 		| _ -> print_endline "There was an error, just don't know which one."; lst
 
 let parsit arrayz =
-	print_string "rule: "
+	print_string "rule: ";
+	let test = arrayz.(1) in
+	print_endline (string_of_int (Array.length arrayz))
 	

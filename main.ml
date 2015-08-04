@@ -25,7 +25,7 @@ let main file =
 		(*for i=0 to (size-1) do
 			print_endline (List.nth !rulez i);
 		done;*)
-		let lexed = (Lexer.lexit !rulez) in 
+		let lexed = Lexer.lexit !rulez in 
 		Parser.parsit lexed
 	with
 		| End_of_file -> print_endline "Seriously ?? Empty file, well that means no joke then !!"
