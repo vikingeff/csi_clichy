@@ -39,6 +39,6 @@ let lst_from_file file =
 
 let parsit arrayz =
 	print_string "rule: ";
-	let test = arrayz.(1) in
-	print_endline (string_of_int (Array.length arrayz))
+	let test = arrayz.(0) in
+	print_endline (get_left test)
 	

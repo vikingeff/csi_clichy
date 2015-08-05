@@ -20,7 +20,7 @@ let print_trool = function
 
 let lexit rulez =
 	let results = Array.make 26 NA in
-	let arrul = Array.make ((List.length rulez)-1) ["", false] in
+	let arrul = Array.make ((List.length rulez)-1) ("", false) in
 	let loop = ref 0 in 
 	for i = 0 to ((List.length rulez)-1) do
 		if (List.nth rulez i).[0] = '=' then
@@ -37,7 +37,7 @@ let lexit rulez =
 		end
 		else if (List.nth rulez i).[0] != '#' then
 			begin
-				arrul.(!loop) <- [(List.nth rulez i), false];
+				arrul.(!loop) <- ((List.nth rulez i), false);
 				incr loop
 			end
 	done;
